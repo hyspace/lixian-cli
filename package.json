@@ -1,0 +1,36 @@
+{
+  "name": "lixian-cli",
+  "version": "0.1.0",
+  "description": "lixian xunlei cli on casperjs",
+  "main": "task.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hyspace/lixian-cli.git"
+  },
+  "bin": {
+    "lixian-cli": "./bin/lixian-cli.js"
+  },
+  "keywords": [
+    "cli",
+    "xunlei",
+    "lixian",
+    "casperjs",
+    "phantomjs"
+  ],
+  "author": "hyspace",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/hyspace/lixian-cli/issues"
+  },
+  "homepage": "https://github.com/hyspace/lixian-cli",
+  "dependencies": {
+    "casperjs": "~1.1.0-beta3",
+    "cli": "~0.4.5",
+    "request": "~2.33.0",
+    "request-progress": "~0.3.1",
+    "q": "~1.0.0"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.7.1"
+  }
+}
