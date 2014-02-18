@@ -1,6 +1,8 @@
 # lixian-cli 迅雷离线命令行工具
 
-[English Version](README_EN.md)
+[![NPM version](https://badge.fury.io/js/lixian-cli.png)](http://badge.fury.io/js/lixian-cli)
+
+[English Version](https://github.com/hyspace/lixian-cli/blob/master/README_EN.md)
 
 一个基于casperjs和phantomjs的nodejs迅雷离线任务模块，包含一个命令行工具
 

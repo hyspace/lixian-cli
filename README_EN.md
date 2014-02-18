@@ -1,5 +1,9 @@
 # lixian-cli
 
+[![NPM version](https://badge.fury.io/js/lixian-cli.png)](http://badge.fury.io/js/lixian-cli)
+
+[中文](https://github.com/hyspace/lixian-cli/blob/master/README.md)
+
 A simple nodejs module including command line tool for xunlei-lixian service.
 
 Supports:
