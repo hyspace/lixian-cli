@@ -31,6 +31,8 @@ casperTask = (options = {}) ->
 
   exec cmd,
     maxBuffer: 1024 * 1024
+    env:
+      'PHANTOMJS_EXECUTABLE': path.resolve(__dirname, './node_modules/casperjs/node_modules/.bin/phantomjs')
   ,(error, stdout, stderr) ->
     unless error?
       try

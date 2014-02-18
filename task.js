@@ -38,7 +38,10 @@ casperTask = function(options) {
   }
   cmd += " " + indexPath;
   exec(cmd, {
-    maxBuffer: 1024 * 1024
+    maxBuffer: 1024 * 1024,
+    env: {
+      'PHANTOMJS_EXECUTABLE': path.resolve(__dirname, './node_modules/casperjs/node_modules/.bin/phantomjs')
+    }
   }, function(error, stdout, stderr) {
     var e, json;
     if (error == null) {

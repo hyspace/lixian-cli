@@ -31,7 +31,7 @@ download = (url, dest, options)->
         'User-Agent':'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)'
         'Cookie':options.cookies
         'Referer':options.refer
-      proxy:'http://127.0.0.1:8888'
+      # proxy:'http://127.0.0.1:8888'
     )
   ,
     throttle: 1000
