@@ -16,6 +16,12 @@ using `npm`:
 npm install -g lixian-cli
 ```
 
+Since phantomjs requires `FreeType`, `Fontconfig`, linux user should install them first:
+
+```shell
+sudo apt-get install libfreetype6 fontconfig
+```
+
 ## cli tool usage
 
 ```shell

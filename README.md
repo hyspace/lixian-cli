@@ -18,6 +18,12 @@
 npm install -g lixian-cli
 ```
 
+由于 phantomjs 依赖 FreeType, Fontconfig, linux用户需要安装它们。
+
+```shell
+sudo apt-get install libfreetype6 fontconfig
+```
+
 ## 命令行工具说明
 
 ```shell
