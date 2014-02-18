@@ -19,9 +19,13 @@ npm install -g lixian-cli
 ```
 
 ## 命令行工具说明
+
+```shell
 lixian-cli [OPTIONS] <command> [ARGS]
+```
 
 ### 使用示例
+
 ```shell
 $ lixian-cli login -u un -p pw
 
@@ -33,7 +37,10 @@ $ lixian-cli download 0 ~/Downloads/
 ```
 
 ### 可选命令:
+
+```shell
 add, download, fetch, login, show
+```
 
 #### lixian-cli login -u USERNAME -p PASSWORD
 
@@ -43,7 +50,7 @@ add, download, fetch, login, show
 
 更新离线下载任务列表，保存到本地缓存，并输出到命令行。
 
-_需要先登录_ 或者在命令中包含用户名和密码参数以登录
+_需要先登录 或者在命令中包含用户名和密码参数以登录_
 
 #### lixian-cli show
 
@@ -62,15 +69,17 @@ _需要先登录_ 或者在命令中包含用户名和密码参数以登录
 
 `path` 不应包含文件名，`lixian-cli`使用任务内文件的文件名作为下载后文件的文件名
 
-_需要先登录_ 如果距离上次成功登录或更新时间较长，可能会下载失败，需要重新登录。
+_需要先登录 如果距离上次成功登录或更新时间较长，可能会下载失败，需要重新登录。_
 
 #### lixian-cli add [url] \[-u USERNAME -p PASSWORD\]
 
 添加新任务。支持`magnet:`, `ed2k://`, `http(s)://` url, or `thunder://`，不支持上传种子文件（推荐使用磁力链接代替）
 
-_需要先登录_ 或者在命令中包含用户名和密码参数以登录
+_需要先登录 或者在命令中包含用户名和密码参数以登录_
 
 ### 选项:
+
+```shell
 -P, --page [NUMBER]    Page of lixian tasks (Default is 1)
 -u, --username STRING  Username
 -p, --password STRING  Password
@@ -79,6 +88,7 @@ _需要先登录_ 或者在命令中包含用户名和密码参数以登录
     --debug            Show debug information
 -v, --version          Display the current version
 -h, --help             Display help and usage details
+```
 
 ## 工作原理
 

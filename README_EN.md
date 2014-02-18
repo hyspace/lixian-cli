@@ -17,9 +17,13 @@ npm install -g lixian-cli
 ```
 
 ## cli tool usage
+
+```shell
 lixian-cli [OPTIONS] <command> [ARGS]
+```
 
 ### example
+
 ```shell
 $ lixian-cli login -u un -p pw
 
@@ -31,7 +35,9 @@ $ lixian-cli download 0 ~/Downloads/
 ```
 
 ### Commands:
+```shell
 add, download, fetch, login, show
+```
 
 #### lixian-cli login -u USERNAME -p PASSWORD
 
@@ -39,7 +45,7 @@ Login, and then fetch tasks. (Does not output tasks in terminal)
 
 #### lixian-cli fetch \[-u USERNAME -p PASSWORD\]
 
-_Requires logging first._ or with username and password as option to login.
+_Requires logging first. or with username and password as option to login._
 
 Update and output tasks.
 
@@ -49,7 +55,7 @@ Show fetched tasks. This command do not update task list from server.
 
 #### lixian-cli download \[index\] \[destination path\]
 
-_Requires logged first._ if you haven't logged in for a while, may be you should login again.
+_Requires logged first. if you haven't logged in for a while, may be you should login again._
 
 Download selected file. Format of index should be the same as that `show` or `fetch` command outputed.
 
@@ -63,11 +69,13 @@ Download selected file. Format of index should be the same as that `show` or `fe
 
 #### lixian-cli add [url] \[-u USERNAME -p PASSWORD\]
 
-_Requires logging first._ or with username and password as option to login.
-
 Add new task, protocols can be `magnet:`, `ed2k://`, `http(s)://` url, or `thunder://` (does not support upload `.torrent` files yet).
 
+_Requires logging first. or with username and password as option to login._
+
 ###Options:
+
+```shell
 -P, --page [NUMBER]    Page of lixian tasks (Default is 1)
 -u, --username STRING  Username
 -p, --password STRING  Password
@@ -76,6 +84,7 @@ Add new task, protocols can be `magnet:`, `ed2k://`, `http(s)://` url, or `thund
     --debug            Show debug information
 -v, --version          Display the current version
 -h, --help             Display help and usage details
+```
 
 ## How it works
 
