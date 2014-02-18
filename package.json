@@ -1,6 +1,6 @@
 {
   "name": "lixian-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "lixian xunlei cli on casperjs",
   "main": "task.js",
   "repository": {
