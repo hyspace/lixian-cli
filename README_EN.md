@@ -26,6 +26,11 @@ Since phantomjs requires `FreeType`, `Fontconfig`, linux user should install the
 sudo apt-get install libfreetype6 fontconfig
 ```
 
+Mac user：If something error happened, try:
+
+```shell
+sudo ln -s /usr/local/bin/node /usr/bin/node
+```
 ## cli tool usage
 
 ```shell
@@ -45,6 +50,7 @@ $ lixian-cli download 0 ~/Downloads/
 ```
 
 ### Commands:
+
 ```shell
 add, download, fetch, login, show
 ```

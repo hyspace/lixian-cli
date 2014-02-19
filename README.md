@@ -26,6 +26,12 @@ npm install -g lixian-cli
 sudo apt-get install libfreetype6 fontconfig
 ```
 
+Mac用户：由于casperjs可执行文件的问题，可能需要
+
+```shell
+sudo ln -s /usr/local/bin/node /usr/bin/node
+```
+
 ## 命令行工具说明
 
 ```shell
