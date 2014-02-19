@@ -195,8 +195,8 @@ cli.main(function(args, options) {
         return process.exit(0);
       }, function(reason) {
         cli.debug('error: ' + reason.error.toString());
-        cli.debug('stdout:' + reason.stderr);
-        cli.debug('stderr:' + r(eason.stderr));
+        cli.debug('stdout:' + reason.stdout);
+        cli.debug('stderr:' + reason.stderr);
         return cli.fatal('Login failed. Add --debug to options to see what happend.');
       });
       break;
@@ -207,8 +207,8 @@ cli.main(function(args, options) {
         return process.exit(0);
       }, function(reason) {
         cli.debug('error: ' + reason.error.toString());
-        cli.debug('stdout:' + reason.stderr);
-        cli.debug('stderr:' + r(eason.stderr));
+        cli.debug('stdout:' + reason.stdout);
+        cli.debug('stderr:' + reason.stderr);
         return cli.fatal('Fetch failed. Add --debug to options to see what happend.');
       });
       break;
@@ -265,8 +265,8 @@ cli.main(function(args, options) {
           return process.exit(0);
         }, function(reason) {
           cli.debug('error: ' + reason.error.toString());
-          cli.debug('stdout:' + reason.stderr);
-          cli.debug('stderr:' + r(eason.stderr));
+          cli.debug('stdout:' + reason.stdout);
+          cli.debug('stderr:' + reason.stderr);
           return cli.fatal('Add failed. Add --debug to options to see what happend.');
         });
       } else {

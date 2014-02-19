@@ -147,8 +147,8 @@ cli.main (args, options) ->
         process.exit(0)
       , (reason)->
         cli.debug 'error: ' + reason.error.toString()
-        cli.debug 'stdout:' + reason.stderr
-        cli.debug 'stderr:' +r eason.stderr
+        cli.debug 'stdout:' + reason.stdout
+        cli.debug 'stderr:' + reason.stderr
         cli.fatal 'Login failed. Add --debug to options to see what happend.'
 
     when "fetch"
@@ -158,8 +158,8 @@ cli.main (args, options) ->
         process.exit(0)
       , (reason)->
         cli.debug 'error: ' + reason.error.toString()
-        cli.debug 'stdout:' + reason.stderr
-        cli.debug 'stderr:' +r eason.stderr
+        cli.debug 'stdout:' + reason.stdout
+        cli.debug 'stderr:' + reason.stderr
         cli.fatal 'Fetch failed. Add --debug to options to see what happend.'
 
     when "show"
@@ -209,8 +209,8 @@ cli.main (args, options) ->
           process.exit(0)
         , (reason)->
           cli.debug 'error: ' + reason.error.toString()
-          cli.debug 'stdout:' + reason.stderr
-          cli.debug 'stderr:' +r eason.stderr
+          cli.debug 'stdout:' + reason.stdout
+          cli.debug 'stderr:' + reason.stderr
           cli.fatal 'Add failed. Add --debug to options to see what happend.'
 
       else
