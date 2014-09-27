@@ -129,7 +129,7 @@ cli.parse(
   tasknum:      ["n", "Tasks per page in [30, 50, 80, 100]", "number", 30]
 ,
 # commands
-["fetch", "show", "download", "add", "login"]
+["fetch", "show", "download", "add", "login", "delete"]
 )
 cli.main (args, options) ->
   switch options.tasknum
@@ -199,6 +199,24 @@ cli.main (args, options) ->
           process.exit(0)
         , (reason)->
           cli.fatal "Download Failed. #{reason.error.toString()}"
+    when "delete"
+      if args.length == 1
+        index = args[0]
+        index = parseInt(index, 10)
+        return cli.fatal "Invalid index, should be an integer..." unless isInt(index)
+        config = getList()
+        return cli.fatal "Index out of range.. (0..#{config.task.length-1})" unless t = config.tasks[index]
+        task.delete(t.id, options).then (json)->
+          saveList(json)
+          showList(json.tasks, 0)
+          process.exit(0)
+        , (reason)->
+          cli.debug 'error: ' + reason.error.toString()
+          cli.debug 'stdout:' + reason.stdout
+          cli.debug 'stderr:' + reason.stderr
+          cli.fatal 'Delete failed. Add --debug to options to see what happend.'
+      else
+        cli.fatal "Invalid arguments. See lixian-cli --help for help"
 
     when "add"
       if args.length > 0

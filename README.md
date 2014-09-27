@@ -85,6 +85,10 @@ _需要先登录 或者在命令中包含用户名和密码参数以登录_
 
 _需要先登录 如果距离上次成功登录或更新时间较长，可能会下载失败，需要重新登录。_
 
+#### lixian-cli delete \[index\]
+
+删除指定的迅雷任务。`index`为任务的序号，应该为一个数字。
+
 #### lixian-cli add [url] \[-u USERNAME -p PASSWORD\]
 
 添加新任务。支持`magnet:`, `ed2k://`, `http(s)://` url, or `thunder://`，不支持上传种子文件（推荐使用磁力链接代替）
@@ -145,11 +149,13 @@ promise.then(function(json){
     cookies:'string',   //cookie字符串，用于http header
     tasks: [
       {
+        id: 'string'    //对应的迅雷任务ID
         type:'file',    //单一文件
         url: 'url'      //下载地址
         name:'string'   //文件名
       },
       {
+        id: 'string'    //对应的迅雷任务ID
         type:'folder',  //文件夹可能包含多个文件
         files:[
           {
@@ -176,6 +182,12 @@ promise.then(function(json){
 add(url, options)
 
 _和在fetch的options中包含url参数的效果一致_
+
+#### delete(id, options)
+
+delete(id, options)
+
+_和在fetch的options中包含id参数的效果一致_
 
 #### login(username, password, options)
 

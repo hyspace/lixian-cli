@@ -4,6 +4,7 @@ PASSWORD = null
 PAGE = null
 TASKNUM = null
 URL = null
+DELETE = null
 
 
 # control flow args
@@ -40,6 +41,7 @@ PASSWORD = casper.cli.options['password']
 PAGE = casper.cli.options['page'] || 1
 TASKNUM = casper.cli.options['tasknum'] || 30
 URL = casper.cli.options['url']
+DELETE = casper.cli.options['delete']
 
 casper.start "http://lixian.xunlei.com", ->
   url = @getCurrentUrl()
@@ -125,6 +127,29 @@ casper.then ->
   , TIMEOUT
 
 
+# skip delete task if no delete provided
+casper.thenBypassIf ->
+  !DELETE
+, 1
+casper.then ->
+
+  @evaluate (DELETE) ->
+    # main logic to get tasks
+    $.post INTERFACE_URL + "/task_delete?callback=&type=0",
+      taskids: DELETE
+      databases: 0
+      interfrom: G_PAGE
+    , (process) ->
+      window.__task_deleted__ = true
+      return
+    return
+  , DELETE
+  @waitFor ->
+    LIST = @evaluate ->
+      window.__task_deleted__
+    LIST
+
+
 # get list
 casper.then ->
   pageContext =
@@ -151,6 +176,7 @@ casper.then ->
               type:'file'
               name:task.taskname
               url:task.lixian_url
+              id: task.id
 
           else if task.tasktype == 0
             (->
@@ -159,6 +185,7 @@ casper.then ->
                 name:task.taskname
                 files:[]
                 unready:true
+                id: task.id
 
               list.push folder
 
@@ -213,7 +240,6 @@ casper.then ->
 
     @output JSON.stringify(output)
     @exitWithMessage()
-
   , ->
     @dieWithMessage 'Get list failed.'
 
