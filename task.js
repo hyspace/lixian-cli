@@ -36,6 +36,9 @@ casperTask = function(options) {
   if (options.url) {
     cmd += " --url='" + options.url + "'";
   }
+  if (options["delete"]) {
+    cmd += " --delete='" + options["delete"] + "'";
+  }
   cmd += " " + indexPath;
   exec(cmd, {
     maxBuffer: 1024 * 1024,
@@ -71,6 +74,18 @@ exports.add = function(url, options) {
   }
   if (typeof url === 'string') {
     options.url = url;
+    return casperTask(options);
+  } else {
+    return false;
+  }
+};
+
+exports["delete"] = function(id, options) {
+  if (options == null) {
+    options = {};
+  }
+  if (typeof id === 'string') {
+    options["delete"] = id;
     return casperTask(options);
   } else {
     return false;

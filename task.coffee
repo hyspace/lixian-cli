@@ -25,6 +25,9 @@ casperTask = (options = {}) ->
   if options.url
     cmd += " --url='#{options.url}'"
 
+  if options.delete
+    cmd += " --delete='#{options.delete}'"
+
   cmd += " #{indexPath}"
 
   # console.log cmd
@@ -58,6 +61,14 @@ exports.add = (url, options = {})->
     return casperTask(options)
   else
     return false
+
+exports.delete = (id, options = {})->
+  if typeof id == 'string'
+    options.delete = id
+    return casperTask(options)
+  else
+    return false
+
 
 exports.fetch = (options)->
   return casperTask(options)

@@ -172,10 +172,10 @@ cli.parse({
   username: ["u", "Username", "string"],
   password: ["p", "Password", "string"],
   tasknum: ["n", "Tasks per page in [30, 50, 80, 100]", "number", 30]
-}, ["fetch", "show", "download", "add", "login"]);
+}, ["fetch", "show", "download", "add", "login", "delete"]);
 
 cli.main(function(args, options) {
-  var dest, index1, index2, indexArray, json, q, url;
+  var config, dest, index, index1, index2, indexArray, json, q, t, url;
   switch (options.tasknum) {
     case 50:
     case 80:
@@ -254,6 +254,31 @@ cli.main(function(args, options) {
         }, function(reason) {
           return cli.fatal("Download Failed. " + (reason.error.toString()));
         });
+      }
+      break;
+    case "delete":
+      if (args.length === 1) {
+        index = args[0];
+        index = parseInt(index, 10);
+        if (!isInt(index)) {
+          return cli.fatal("Invalid index, should be an integer...");
+        }
+        config = getList();
+        if (!(t = config.tasks[index])) {
+          return cli.fatal("Index out of range.. (0.." + (config.task.length - 1) + ")");
+        }
+        task["delete"](t.id, options).then(function(json) {
+          saveList(json);
+          showList(json.tasks, 0);
+          return process.exit(0);
+        }, function(reason) {
+          cli.debug('error: ' + reason.error.toString());
+          cli.debug('stdout:' + reason.stdout);
+          cli.debug('stderr:' + reason.stderr);
+          return cli.fatal('Delete failed. Add --debug to options to see what happend.');
+        });
+      } else {
+        cli.fatal("Invalid arguments. See lixian-cli --help for help");
       }
       break;
     case "add":
