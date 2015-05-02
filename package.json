@@ -18,7 +18,7 @@
     "phantomjs"
   ],
   "author": "hyspace",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/hyspace/lixian-cli/issues"
   },
